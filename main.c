@@ -1,6 +1,10 @@
 #include "header.h"
 
 int main(int argc, char *argv[]){
+
+    conf conf;
+    conf = intializeConf();
+
     //sdl
     int continuer = 1, herosx, herosy, nb;
     unsigned long int argent=0;
@@ -29,7 +33,7 @@ int main(int argc, char *argv[]){
         exit(EXIT_FAILURE);
     }
 
-    /* On crée la fenêtre d'affichage */
+    /* On crï¿½e la fenï¿½tre d'affichage */
     ecran = SDL_SetVideoMode(800, 450, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
     if(ecran==NULL){
         fprintf(stderr, "Erreur d'initialisation de la fenetre : %s\n", SDL_GetError());
@@ -101,11 +105,11 @@ int main(int argc, char *argv[]){
     SDL_ShowCursor(0);
     while (continuer){ /* TANT QUE la variable ne vaut pas 0 */
 
-        SDL_PollEvent(&event); /* On attend un événement qu'on récupère dans event */
+        SDL_PollEvent(&event); /* On attend un ï¿½vï¿½nement qu'on rï¿½cupï¿½re dans event */
 
-        switch(event.type){ /* On teste le type d'événement */
-            case SDL_QUIT: /* Si c'est un événement QUITTER */
-                continuer = 0; /* On met le booléen à 0, donc la boucle va s'arrêter */
+        switch(event.type){ /* On teste le type d'ï¿½vï¿½nement */
+            case SDL_QUIT: /* Si c'est un ï¿½vï¿½nement QUITTER */
+                continuer = 0; /* On met le boolï¿½en ï¿½ 0, donc la boucle va s'arrï¿½ter */
                 break;
         }
 
@@ -200,7 +204,7 @@ int main(int argc, char *argv[]){
     SDL_FreeSurface(chest);
     SDL_FreeSurface(mimic);
     SDL_FreeSurface(money);
-    SDL_FreeSurface(ui); /* On libère la surface */
+    SDL_FreeSurface(ui); /* On libï¿½re la surface */
     SDL_FreeSurface(ecran);
     TTF_CloseFont(police);
     Mix_FreeMusic(bgm);
