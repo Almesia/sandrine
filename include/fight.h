@@ -1,13 +1,14 @@
 //
 // Created by Basile on 28/01/2018.
 //
-typedef struct fight
+typedef struct Fight
 {
     Monster *monster;
     int dmgDone;
 
-}fight;
+}Fight;
 
-fight * create_fight(Liste_Monster *monster);
-int calc_dmg(fight *fight, int dmg, User *user);
-int nextFight(fight *fight, User *user);
+Fight * create_fight(Liste_Monster *monster);
+int calc_dmg_sec(User * user, Liste_Hero * heroes);
+int calc_dmg(Fight *fight, int dmg, User *user);
+int nextFight(Fight *fight, User *user);

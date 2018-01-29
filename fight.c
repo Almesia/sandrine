@@ -9,45 +9,62 @@
         hero->premier = hero->premier->suivant;
     }
  */
-fight * create_fight(Liste_Monster *monster)
+Fight * create_fight(Liste_Monster *monster)
 {
-    fight *fight;
-    fight = malloc(sizeof(fight));
+    Fight *fight;
+    fight = malloc(sizeof(Fight));
 
     if(fight == NULL)
         exit(EXIT_FAILURE);
     fight->monster = monster;
     fight->dmgDone = 0;
-    printf("fight cree");
     return fight;
 }
 
-int calc_dmg(fight *fight, int dmg, User *user)
+int calc_dmg_sec(User * user, Liste_Hero * heroes){
+	int dmg = user->dmg_base;
+    while (heroes->premier->suivant != NULL)
+    {
+        dmg += heroes->premier->damage_base;
+        heroes->premier = heroes->premier->suivant;
+    }
+    return dmg;
+}
+
+int calc_dmg(Fight *fight, int dmg, User *user)
 {
     if(fight != NULL)
     {
         fight->dmgDone += dmg;
 
+        fprintf(stderr, "damage = %d", fight->dmgDone);
+
         if(fight->dmgDone >= fight->monster->life)
-            nextFight(fight, user);
+            return nextFight(fight, user);
         else
             return 1;
     }
     return 0;
 }
 
-int nextFight(fight *fight, User *user)
+int nextFight(Fight *fight, User *user)
 {
     if(fight != NULL)
     {
+    	int code_return = 0;
         fight->dmgDone = 0;
         int xp, money;
         xp = fight->monster->experience_drop;
         money = fight->monster->money_drop;
-        if(fight->monster->suivant != NULL)
+        if(fight->monster->suivant != NULL){
 			fight->monster = fight->monster->suivant;
-        else
-            printf("end of fight");
+			fprintf(stderr, "Passage monstre suivant %s \n", fight->monster->monster_name);
+        }
+        else{
+			user->current_round += 1;
+			code_return = 2;
+			fprintf(stderr, "Passage round suivant %d \n", user->current_round);
+        }
         user->money += money;
         user->xp += xp;
         if(user->xp >=100)
@@ -56,7 +73,7 @@ int nextFight(fight *fight, User *user)
             user->current_level = user->current_level + 1 ;
             user->dmg_base = user->dmg_base + user->dmg_ratio;
         }
-
+        return code_return;
     }
 
 }

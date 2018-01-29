@@ -8,7 +8,20 @@ int main(int argc, char *argv[]){
 	sqlite3 * db;
     db = init_database(db, conf->bdd);
 
+    User * user = select_user(db, "remi");
 
+    Liste_Monster * monsters = initialisation_monster();
+    monsters = select_monster_current_level(db, user->current_round);
+
+    afficherListe_monster(monsters);
+
+    Liste_Hero* heroes = select_heroes_user(db, user->user_id);
+
+    int dmg = calc_dmg_sec(user, heroes);
+
+	Liste_Hero* heroes_all = select_heroes(db);
+
+	Fight * fight = create_fight(monsters->premier);
 
     //sdl
     int continuer = 1, herosx, herosy, nb;
@@ -108,6 +121,7 @@ int main(int argc, char *argv[]){
     Mix_PlayMusic(bgm,-1);
 
     SDL_ShowCursor(0);
+
     while (continuer){ /* TANT QUE la variable ne vaut pas 0 */
 
         SDL_PollEvent(&event); /* On attend un �v�nement qu'on r�cup�re dans event */
@@ -121,6 +135,17 @@ int main(int argc, char *argv[]){
         if(event.button.button==SDL_BUTTON_LEFT && event.button.type==SDL_MOUSEBUTTONDOWN){
             event.button.button=0;
             if(event.button.x>550 && event.button.x<600 && event.button.y>175 && event.button.y<275){
+				if(monsters->premier->suivant != NULL){
+					if(fight){
+						if(calc_dmg(fight, dmg, user) == 2){
+							monsters = select_monster_current_level(db, user->current_round);
+							fight = create_fight(monsters);
+						}
+					}else{
+						monsters = select_monster_current_level(db, user->current_round);
+						fight = create_fight(monsters);
+					}
+				}
                 argent=argent+1;
                 blit(ecran,cursor,event.button.x, event.button.y);
                 blit(ecran,bam,event.button.x,event.button.y);
