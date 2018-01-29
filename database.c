@@ -31,6 +31,7 @@ sqlite3* init_database(sqlite3 *db, char * name_db){
 
 
 sqlite3* open_database(sqlite3 *db, char * name_db){
+	fprintf(stderr, "%s \n", name_db);
 	int rc = sqlite3_open(name_db, &db);
 
 	if ( rc ) {

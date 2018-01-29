@@ -2,8 +2,13 @@
 
 int main(int argc, char *argv[]){
 
-    conf conf;
+    Conf *conf;
     conf = intializeConf();
+
+	sqlite3 * db;
+    db = init_database(db, conf->bdd);
+
+
 
     //sdl
     int continuer = 1, herosx, herosy, nb;

@@ -7,6 +7,7 @@
 #include <time.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
+#include "conf.h"
 #include "database.h"
 #include "fight.h"
 

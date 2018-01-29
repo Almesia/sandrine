@@ -1,46 +1,48 @@
 //
 // Created by Basile on 29/01/2018.
 //
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 #include "conf.h"
 
-conf *intializeConf()
+Conf *intializeConf()
 {
-    conf *conf;
-    conf = malloc(sizeof(conf));
-    conf->language = malloc(sizeof(char)*25);
-    conf->bdd = malloc(sizeof(char)*25);
-    conf->sound = malloc(sizeof(char)*25);
+	int i;
+    Conf *conf;
+    conf = malloc(sizeof(Conf));
+
     FILE *file;
     file = fopen("config.conf", "r");
 
     char *param;
     param = malloc(sizeof(char)*255);
-    fgets(param,255,file);
 
-    for (int i = 7; i < strlen(param); ++i)
-        strcat(conf->language, param+i);
+    fflush(stdin);
+    fgets(param, 255, file);
+    conf->language = malloc(sizeof(char)*strlen(param));
+    strcpy(conf->language, param+8);
+    conf->language[strlen(param)-9] = '\0';
 
-    free(param);
-    param = malloc(sizeof(char)*255);
-    fgets(param,255,file);
+    fflush(stdin);
+    fgets(param, 255, file);
+    conf->bdd = malloc(sizeof(char)*strlen(param));
+    strcpy(conf->bdd, param+5);
+    conf->bdd[strlen(param)-6] = '\0';
 
-    for (int i = 4; i < strlen(param); ++i)
-        strcat(conf->bdd, param+i);
-
-    free(param);
-    param = malloc(sizeof(char)*255);
-    fgets(param,255,file);
-
-    for (int i = 6; i < strlen(param); ++i)
-        strcat(conf->bdd, param+i);
+    fflush(stdin);
+    fgets(param, 255, file);
+    conf->sound = malloc(sizeof(char)*strlen(param));
+    strcpy(conf->sound, param+7);
+    conf->sound[strlen(param)-7] = '\0';
 
     fclose(file);
     free(param);
     return conf;
 }
 
-conf *updateConf(conf *conf, int param, char *value)
+Conf *updateConf(Conf *conf, int param, char *value)
 {
     switch (param)
     {
@@ -56,7 +58,7 @@ conf *updateConf(conf *conf, int param, char *value)
         default:
             return conf;
     }
-    FILE file;
+    FILE * file;
     file = fopen("config.conf", "w+");
     fprintf(file,"langue: %s\n", conf->language);
     fprintf(file,"bdd: %s\n", conf->bdd);
