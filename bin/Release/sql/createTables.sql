@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS heroes( heroes_id Int NOT NULL , heroes_name Char (25) NOT NULL , level_max Int NOT NULL ,current_level Int NOT NULL ,damage_base Int NOT NULL ,damage_ratio Float NOT NULL , money_cost Int NOT NULL ,PRIMARY KEY (heroes_id ));
+CREATE TABLE IF NOT EXISTS monster( monster_id Int NOT NULL , monster_name Char (25) NOT NULL , img_link Text NOT NULL , life Int NOT NULL , money_drop Int NOT NULL , xp_drop Int NOT NULL , boss Int NOT NULL , PRIMARY KEY (monster_id ));
+CREATE TABLE IF NOT EXISTS round( round_id Int NOT NULL , round_img_link Text NOT NULL , level_min Int NOT NULL , level_max Int NOT NULL , PRIMARY KEY (round_id ));
+CREATE TABLE IF NOT EXISTS user( user_id Int NOT NULL , user_name Text NOT NULL , current_level Int NOT NULL , money Int NOT NULL , xp Int NOT NULL , dmg_base Int NOT NULL , dmg_ratio Float , last_connection Datetime , PRIMARY KEY (user_id ));
+CREATE TABLE IF NOT EXISTS possesses( user_id Int NOT NULL , heroes_id Int NOT NULL , PRIMARY KEY (user_id ,heroes_id ), FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY (heroes_id) REFERENCES heroes(heroes_id));
+CREATE TABLE IF NOT EXISTS visit( user_id Int NOT NULL , round_id Int NOT NULL , PRIMARY KEY (user_id ,round_id ), FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY (round_id) REFERENCES round(round_id));
+CREATE TABLE IF NOT EXISTS belongs( round_id Int NOT NULL , monster_id Int NOT NULL , PRIMARY KEY (round_id ,monster_id ), FOREIGN KEY (round_id) REFERENCES round(round_id), FOREIGN KEY (monster_id) REFERENCES monster(monster_id));

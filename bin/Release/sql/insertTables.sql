@@ -1,0 +1,5 @@
+INSERT INTO monster(monster_id, monster_name, life, money_drop, xp_drop, boss, img_link, pos_x, pos_y, red, green, blue) VALUES (1,"monster_1", 100, 100, 100, 0, "img/monster01.png", 100, 200, 10, 10, 10), (2,"monster_2", 102, 102, 102, 0, "img/monster02.png", 100, 200, 10, 10, 10), (3,"monster_3", 103, 100, 100, 0, "img/monster03.png", 100, 200, 10, 10, 10), (4,"monster_4", 104, 100, 100, 0, "img/monster04.png", 100, 200, 10, 10, 10);
+INSERT INTO hero(hero_id, hero_name, level_max, current_level, damage_base, damage_ratio, money_cost, img_link, pos_x, pos_y, red, green, blue) VALUES (1,"heroes_1", 100, 1, 100, 1, 1000, "img/hero01.png", 100, 200, 10, 10, 10), (2,"heroes_2", 100, 1, 100, 1, 1000, "img/hero02.png", 100, 200, 10, 10, 10);
+INSERT INTO round(round_id, img_link, pos_x, pos_y, red, green, blue) VALUES (1, "img/round01.png", 100, 200, 10, 10, 10), (2, "img/round02.png", 100, 200, 10, 10, 10);
+INSERT INTO user(user_id, round_id, user_name, current_level, money, xp, dmg_base, dmg_ratio, last_connection) VALUES (1,1,"remi",1,0,1,1,1.0,"2018-01-27 16:30:00");
+INSERT INTO belongs(round_id, monster_id) VALUES (1,1), (1,2), (1,3), (2,4);

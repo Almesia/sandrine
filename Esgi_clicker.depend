@@ -1,0 +1,458 @@
+# depslib dependency file v1.0
+1516286021 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clicker\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<sqlite3.h>
+	<SDL.h>
+
+1508891160 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clicker\shell.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<assert.h>
+	"sqlite3.h"
+	"sqlite3userauth.h"
+	<ctype.h>
+	<stdarg.h>
+	<signal.h>
+	<pwd.h>
+	<unistd.h>
+	<sys/types.h>
+	<readline/readline.h>
+	<readline/history.h>
+	<editline/readline.h>
+	"linenoise.h"
+	<io.h>
+	<fcntl.h>
+	<windows.h>
+	<sys/time.h>
+	<sys/resource.h>
+	<assert.h>
+	<string.h>
+	<stdarg.h>
+	<stdio.h>
+	<assert.h>
+	<string.h>
+	<ctype.h>
+
+1508891160 c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clicker\sqlite3.h
+	<stdarg.h>
+
+1508891160 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clicker\sqlite3.c
+	"config.h"
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	"sqlite_tcl.h"
+	"tcl.h"
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<ctype.h>
+	<math.h>
+
+1517167045 source:c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\main.c
+	"header.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326110987 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326110994 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326111000 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\begin_code.h
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\close_code.h
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1517143353 source:c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\functions.c
+	"header.h"
+
+1517075223 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\header.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<sqlite3.h>
+	<SDL.h>
+	<time.h>
+	<SDL_ttf.h>
+	"database.h"
+
+1516488559 source:c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\maintest.c
+	"header.h"
+
+1325814793 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1517073512 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\database.h
+	"user.h"
+	"monster.h"
+	"hero.h"
+
+1517066582 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\user.h
+
+1517070098 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\monster.h
+
+1517071892 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\hero.h
+
+1517134229 source:c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\database.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<string.h>
+	<sqlite3.h>
+	<time.h>
+	"headers.h"
+	"database.h"
+
+1517169552 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\include\header.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<sqlite3.h>
+	<SDL.h>
+	<time.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"database.h"
+	"fight.h"
+
+1517168511 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\include\database.h
+	"user.h"
+	"monster.h"
+	"hero.h"
+	"image.h"
+
+1517133256 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\include\user.h
+
+1517132127 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\include\monster.h
+
+1517131827 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\include\hero.h
+
+1517132327 source:c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\hero.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"hero.h"
+
+1517132589 source:c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\monster.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"monster.h"
+
+1517064382 source:c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\user.c
+	<stdio.h>
+	<stdlib.h>
+	"user.h"
+
+1325810940 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_mixer.h
+	"SDL_types.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\users\karthike\downloads\logiciels\sdl\sdl-1.2.15\include\sdl\sdl_types.h
+	"SDL_stdinc.h"
+
+1517133258 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\include\image.h
+
+1517168167 c:\users\karthike\documents\cours\c\esgi_clickers\esgi_clicker\include\fight.h
+
+1517143353 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\functions.c
+	"header.h"
+
+1517132327 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\hero.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"hero.h"
+
+1517167045 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\main.c
+	"header.h"
+
+1517132589 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\monster.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"monster.h"
+
+1517064382 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\user.c
+	<stdio.h>
+	<stdlib.h>
+	"user.h"
+
+1517171673 c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\include\header.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<sqlite3.h>
+	<SDL.h>
+	<time.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"database.h"
+	"fight.h"
+
+1517171676 c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\include\database.h
+	"user.h"
+	"monster.h"
+	"hero.h"
+	"image.h"
+
+1517133256 c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\include\user.h
+
+1517132127 c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\include\monster.h
+
+1517131827 c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\include\hero.h
+
+1517133258 c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\include\image.h
+
+1517171773 c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\include\fight.h
+
+1517171707 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\database.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<string.h>
+	<sqlite3.h>
+	<time.h>
+	"header.h"
+
+1517172449 source:c:\users\rémi bruyere\documents\esgi 2a1\langage c\controls\esgi_clickerv6\esgi_clicker\fight.c
+	"header.h"
+
