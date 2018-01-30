@@ -22,5 +22,22 @@ User *initialisation_user(User * user, int id, char name[100], int level, int mo
 }
 
 int export_user(User * user, char * file_name){
+    FILE * file = fopen(file_name, "wb");
+    if(!file)
+        return 0;
+	fwrite(&user, sizeof(User), 1, file);
+	fclose(file);
+	return 1;
+}
 
+int import_user(User * user, char * file_name){
+	FILE * file = fopen(file_name, "rb");
+    if(!file)
+        return 0;
+	if(fread(&user, sizeof(User), 1, file) > 0){
+		fclose(file);
+		return 1;
+	}else{
+		return -1;
+	}
 }
