@@ -82,6 +82,7 @@ int nextFight(Fight *fight, User *user)
             user->current_level = user->current_level + 1 ;
             user->dmg_base = user->dmg_base + user->dmg_ratio;
         }
+
         return code_return;
     }
 

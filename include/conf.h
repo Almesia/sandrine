@@ -7,3 +7,4 @@ typedef struct Conf
 
 Conf *intializeConf();
 Conf *updateConf(Conf *conf, int param, char *value);
+char *loadText(char *word, Conf *conf);

@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
 
     Liste_Hero* heroes = select_heroes_user(db, user->user_id);
 
-    int dmg = calc_dmg_sec(heroes) + 20;
+    int dmg = calc_dmg_sec(heroes);
 
 	Liste_Hero* heroes_all = select_heroes(db);
 
@@ -27,12 +27,16 @@ int main(int argc, char *argv[]){
     int continuer = 1, herosx, herosy, nb;
     unsigned long int argent=0;
     char argents[255];
+    char PvMonstreString[255];
+    char heroInfo[255];
     SDL_Event event;
     SDL_Surface *ecran = NULL, *ui = NULL, *coin=NULL, *money=NULL, *cursor=NULL, *chest=NULL, *bam=NULL;
     SDL_Surface *heros1=NULL, *heros2=NULL, *heros3=NULL, *heros4=NULL, *heros5=NULL, *heros6=NULL, *heros7=NULL, *heros8=NULL;
     SDL_Surface *button1=NULL, *button2=NULL, *button3=NULL, *button4=NULL, *button5=NULL, *button6=NULL, *button7=NULL, *button8=NULL, *mimic=NULL;
+    SDL_Surface *pvmonstre=NULL;
+    SDL_Surface *infoHero=NULL;
     Mix_Music *bgm;
-    TTF_Font *police = NULL;
+    TTF_Font *police = NULL,*police2 = NULL;
     SDL_Color couleurNoire = {0, 0, 0};
     time_t t;
     srand((unsigned) time(&t));
@@ -60,6 +64,7 @@ int main(int argc, char *argv[]){
     SDL_WM_SetCaption("Esgi Clicker", NULL);
 
     police = TTF_OpenFont("font/font2.ttf", 22);
+    police2 = TTF_OpenFont("font/font2.ttf", 10);
     herosx=35;
     herosy=120;
 
@@ -113,6 +118,10 @@ int main(int argc, char *argv[]){
     blit(ecran,coin,50,50);
     blit(ecran,money,140,60);
 
+    sprintf(heroInfo,"%s",heroes_all->premier->hero_name);
+	infoHero = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
+	blit(ecran,infoHero,120,120);
+
     sprintf(argents,"%d",argent);
     money = TTF_RenderText_Blended(police,argents, couleurNoire);
     SDL_Flip(ecran);
@@ -136,6 +145,7 @@ int main(int argc, char *argv[]){
 			time(&start_t);
 			if(fight){
 				if(calc_dmg(fight, dmg, user) == 2){
+					update_user(db, user);
 					free(monsters);
 					monsters = select_monster_current_level(db, user->current_round);
 					free(fight);
@@ -164,6 +174,7 @@ int main(int argc, char *argv[]){
             if(event.button.x>550 && event.button.x<600 && event.button.y>175 && event.button.y<275){
 				if(fight){
 					if(calc_dmg_click(fight, user) == 2){
+						update_user(db, user);
 						free(monsters);
 						monsters = select_monster_current_level(db, user->current_round);
 						free(fight);
@@ -182,40 +193,6 @@ int main(int argc, char *argv[]){
                 SDL_Flip(ecran);
             }
         }
-        /*if(event.button.button==SDL_BUTTON_WHEELUP){
-            herosy+=1;
-            blit(ecran,ui,0,0);
-            blit(ecran,mimic,550,175);
-            blit(ecran,heros1,herosx,herosy);
-            blit(ecran,heros2,herosx+150,herosy);
-            blit(ecran,heros3,herosx,herosy+75);
-            blit(ecran,heros4,herosx+150,herosy+75);
-            blit(ecran,heros5,herosx,herosy+150);
-            blit(ecran,heros6,herosx+150,herosy+150);
-            blit(ecran,heros7,herosx,herosy+225);
-            blit(ecran,heros8,herosx+150,herosy+225);
-            blit(ecran,coin,50,50);
-            blit(ecran,money,140,60);
-            blit(ecran,cursor,event.button.x, event.button.y);
-            SDL_Flip(ecran);
-        }
-        if(event.button.button==SDL_BUTTON_WHEELDOWN){
-            herosy-=1;
-            blit(ecran,ui,0,0);
-            blit(ecran,mimic,550,175);
-            blit(ecran,heros1,herosx,herosy);
-            blit(ecran,heros2,herosx+150,herosy);
-            blit(ecran,heros3,herosx,herosy+75);
-            blit(ecran,heros4,herosx+150,herosy+75);
-            blit(ecran,heros5,herosx,herosy+150);
-            blit(ecran,heros6,herosx+150,herosy+150);
-            blit(ecran,heros7,herosx,herosy+225);
-            blit(ecran,heros8,herosx+150,herosy+225);
-            blit(ecran,coin,50,50);
-            blit(ecran,money,140,60);
-            blit(ecran,cursor,event.button.x, event.button.y);
-            SDL_Flip(ecran);
-        }*/
         if(SDL_MOUSEMOTION){
             blit(ecran,ui,0,0);
             blit(ecran,mimic,550,175);
@@ -240,8 +217,17 @@ int main(int argc, char *argv[]){
             blit(ecran,coin,50,50);
             blit(ecran,money,140,60);
             blit(ecran,cursor,event.button.x, event.button.y);
+
+            blit(ecran,infoHero,110,120);
+
             SDL_Flip(ecran);
         }
+
+		sprintf(PvMonstreString,"%d",fight->monster->life-fight->dmgDone);
+		SDL_FreeSurface(pvmonstre);
+		pvmonstre = TTF_RenderText_Blended(police,PvMonstreString,couleurNoire);
+		blit(ecran,pvmonstre,565,350);
+
         argent=user->money;
         sprintf(argents,"%d",argent);
         SDL_FreeSurface(money);
@@ -250,7 +236,6 @@ int main(int argc, char *argv[]){
         blit(ecran,cursor,event.button.x, event.button.y);
         SDL_Flip(ecran);
     }
-
 
     SDL_FreeSurface(coin);
     SDL_FreeSurface(bam);
@@ -263,13 +248,12 @@ int main(int argc, char *argv[]){
     SDL_FreeSurface(cursor);
     SDL_FreeSurface(chest);
     SDL_FreeSurface(mimic);
+    SDL_FreeSurface(pvmonstre);
     SDL_FreeSurface(money);
     SDL_FreeSurface(ui); /* On lib�re la surface */
     SDL_FreeSurface(ecran);
     TTF_CloseFont(police);
     Mix_FreeMusic(bgm);
-
-
 
     Mix_CloseAudio();
     TTF_Quit();

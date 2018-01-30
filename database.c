@@ -275,7 +275,7 @@ Liste_Monster * select_monster_current_level(sqlite3 *db, int level){
 		return NULL;
 	}
 
-	rc = sqlite3_bind_int(res, 1, level);
+	rc = sqlite3_bind_int(res, 1, level%3);
 
 	if(rc != SQLITE_OK){
 		fprintf(stderr, "Error on bind : %d on %s", level, sql);
@@ -288,9 +288,9 @@ Liste_Monster * select_monster_current_level(sqlite3 *db, int level){
 				monsters,
 				sqlite3_column_int(res, 0),
 				sqlite3_column_text(res, 1),
-				sqlite3_column_int(res, 2),
-				sqlite3_column_int(res, 3),
-				sqlite3_column_int(res, 4),
+				sqlite3_column_int(res, 2) * (level+1),
+				sqlite3_column_int(res, 3) * (0.5 * level + 1),
+				sqlite3_column_int(res, 4) * (0.5 * level + 1),
 				sqlite3_column_text(res, 6),
 				sqlite3_column_int(res, 7),
 				sqlite3_column_int(res, 8),

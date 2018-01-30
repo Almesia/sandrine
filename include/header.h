@@ -10,6 +10,7 @@
 #include "conf.h"
 #include "database.h"
 #include "fight.h"
+#include "shop.h"
 
 #define DEBUG 1
 #define DATABASE_FILE "esgi_clicker.db"
