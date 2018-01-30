@@ -8,7 +8,8 @@ typedef struct Fight
 
 }Fight;
 
-Fight * create_fight(Liste_Monster *monster);
-int calc_dmg_sec(User * user, Liste_Hero * heroes);
+Fight * create_fight(Monster *monster);
+int calc_dmg_sec(Liste_Hero * heroes);
+int calc_dmg_click(Fight *fight, User *user);
 int calc_dmg(Fight *fight, int dmg, User *user);
 int nextFight(Fight *fight, User *user);

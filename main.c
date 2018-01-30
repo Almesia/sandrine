@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
 
     Liste_Hero* heroes = select_heroes_user(db, user->user_id);
 
-    int dmg = calc_dmg_sec(user, heroes);
+    int dmg = calc_dmg_sec(heroes) + 20;
 
 	Liste_Hero* heroes_all = select_heroes(db);
 
@@ -122,7 +122,34 @@ int main(int argc, char *argv[]){
 
     SDL_ShowCursor(0);
 
+    time_t start_t, end_t;
+	double diff_t;
+
+	time(&start_t);
+
     while (continuer){ /* TANT QUE la variable ne vaut pas 0 */
+
+		time(&end_t);
+		diff_t = difftime(end_t, start_t);
+		if(diff_t >= 1){
+			afficherListe_monster(monsters);
+			time(&start_t);
+			if(fight){
+				if(calc_dmg(fight, dmg, user) == 2){
+					free(monsters);
+					monsters = select_monster_current_level(db, user->current_round);
+					free(fight);
+					fight = create_fight(monsters->premier);
+				}
+			}else{
+				if(monsters->premier->suivant != NULL){
+					free(monsters);
+					monsters = select_monster_current_level(db, user->current_round);
+					free(fight);
+					fight = create_fight(monsters->premier);
+				}
+			}
+		}
 
         SDL_PollEvent(&event); /* On attend un �v�nement qu'on r�cup�re dans event */
 
@@ -135,22 +162,24 @@ int main(int argc, char *argv[]){
         if(event.button.button==SDL_BUTTON_LEFT && event.button.type==SDL_MOUSEBUTTONDOWN){
             event.button.button=0;
             if(event.button.x>550 && event.button.x<600 && event.button.y>175 && event.button.y<275){
-				if(monsters->premier->suivant != NULL){
-					if(fight){
-						if(calc_dmg(fight, dmg, user) == 2){
-							monsters = select_monster_current_level(db, user->current_round);
-							fight = create_fight(monsters);
-						}
-					}else{
+				if(fight){
+					if(calc_dmg_click(fight, user) == 2){
+						free(monsters);
 						monsters = select_monster_current_level(db, user->current_round);
-						fight = create_fight(monsters);
+						free(fight);
+						fight = create_fight(monsters->premier);
+					}
+				}else{
+					if(monsters->premier->suivant != NULL){
+						free(monsters);
+						monsters = select_monster_current_level(db, user->current_round);
+						free(fight);
+						fight = create_fight(monsters->premier);
 					}
 				}
-                argent=argent+1;
                 blit(ecran,cursor,event.button.x, event.button.y);
                 blit(ecran,bam,event.button.x,event.button.y);
                 SDL_Flip(ecran);
-
             }
         }
         /*if(event.button.button==SDL_BUTTON_WHEELUP){
@@ -213,6 +242,7 @@ int main(int argc, char *argv[]){
             blit(ecran,cursor,event.button.x, event.button.y);
             SDL_Flip(ecran);
         }
+        argent=user->money;
         sprintf(argents,"%d",argent);
         SDL_FreeSurface(money);
         money = TTF_RenderText_Blended(police,argents, couleurNoire);

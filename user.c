@@ -20,3 +20,7 @@ User *initialisation_user(User * user, int id, char name[100], int level, int mo
 
     return user;
 }
+
+int export_user(User * user, char * file_name){
+
+}
