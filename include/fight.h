@@ -5,8 +5,7 @@ typedef struct Fight
 {
     Monster *monster;
     int dmgDone;
-
-}Fight;
+} Fight;
 
 Fight * create_fight(Monster *monster);
 int calc_dmg_sec(Liste_Hero * heroes);

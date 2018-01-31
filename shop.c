@@ -8,6 +8,7 @@ int buy(sqlite3 * db, User *user, Hero *hero)
 {
     if(user->money >= hero->money_cost)
     {
+    	user->money -= hero->money_cost;
         add_heroes_to_user(db,hero->hero_id,user->user_id);
         return 1;
     }

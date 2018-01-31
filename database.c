@@ -422,7 +422,50 @@ Image * select_img_round(sqlite3* db, int round_id){
 	return img;
 }
 
+Hero * select_hero_name(sqlite3* db, char * hero_name){
+	Liste_Hero * heroes = initialisation_hero();
+	sqlite3_stmt *res;
+	char * sql = "SELECT * FROM hero WHERE hero_name = ? LIMIT 1;";
+	int rc;
 
+	rc = sqlite3_prepare_v2(db, sql, -1, &res, NULL);
+	if(rc != SQLITE_OK){
+		fprintf(stderr, "Error on prepare : %s", sql);
+		return NULL;
+	}
+
+	rc = sqlite3_bind_text(res, 1, hero_name, -1, NULL);
+
+	if(rc != SQLITE_OK){
+		fprintf(stderr, "Error on bind : %s on %s", hero_name, sql);
+		return NULL;
+	}
+
+	if(res != NULL){
+		while (sqlite3_step(res) != SQLITE_DONE) {
+			insertion_hero(
+				heroes,
+				sqlite3_column_int(res, 0),
+				sqlite3_column_text(res, 1),
+				sqlite3_column_int(res, 2),
+				sqlite3_column_int(res, 3),
+				sqlite3_column_int(res, 4),
+				sqlite3_column_double(res, 5),
+				sqlite3_column_int(res, 6),
+				sqlite3_column_text(res, 7),
+				sqlite3_column_int(res, 8),
+				sqlite3_column_int(res, 9),
+				sqlite3_column_int(res, 10),
+				sqlite3_column_int(res, 11),
+				sqlite3_column_int(res, 12)
+			);
+		}
+	}
+
+	sqlite3_finalize(res);
+	free(sql);
+	return heroes->premier;
+}
 
 
 

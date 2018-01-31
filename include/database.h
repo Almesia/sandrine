@@ -194,3 +194,16 @@ Image * select_img_round(sqlite3* db, int round_id);
  *			  return NULL on error
  */
 int add_heroes_to_user(sqlite3* db, int hero_id, int user_id);
+
+/*
+ * Function: select_hero_name
+ * ----------------------------
+ *   Select hero from name
+ *
+ *	 db: pointer of the database
+ *   hero_name: name of the hero
+ *
+ *   returns: return Hero on success
+ *			  return NULL on error
+ */
+Hero * select_hero_name(sqlite3* db, char * hero_name);
