@@ -34,47 +34,7 @@ int main(int argc, char *argv[]){
     SDL_Surface *heros1=NULL, *heros2=NULL, *heros3=NULL, *heros4=NULL, *heros5=NULL, *heros6=NULL, *heros7=NULL, *heros8=NULL;
     SDL_Surface *button1=NULL, *button2=NULL, *button3=NULL, *button4=NULL, *button5=NULL, *button6=NULL, *button7=NULL, *button8=NULL, *foe=NULL;
     SDL_Surface *pvmonstre=NULL;
-
-    SDL_Surface *infoHero1_1=NULL;
-    SDL_Surface *infoHero1_2=NULL;
-    SDL_Surface *infoHero1_3=NULL;
-    SDL_Surface *infoHero1_4=NULL;
-
-    SDL_Surface *infoHero2_1=NULL;
-    SDL_Surface *infoHero2_2=NULL;
-    SDL_Surface *infoHero2_3=NULL;
-    SDL_Surface *infoHero2_4=NULL;
-
-    SDL_Surface *infoHero3_1=NULL;
-    SDL_Surface *infoHero3_2=NULL;
-    SDL_Surface *infoHero3_3=NULL;
-    SDL_Surface *infoHero3_4=NULL;
-
-    SDL_Surface *infoHero4_1=NULL;
-    SDL_Surface *infoHero4_2=NULL;
-    SDL_Surface *infoHero4_3=NULL;
-    SDL_Surface *infoHero4_4=NULL;
-
-    SDL_Surface *infoHero5_1=NULL;
-    SDL_Surface *infoHero5_2=NULL;
-    SDL_Surface *infoHero5_3=NULL;
-    SDL_Surface *infoHero5_4=NULL;
-
-    SDL_Surface *infoHero6_1=NULL;
-    SDL_Surface *infoHero6_2=NULL;
-    SDL_Surface *infoHero6_3=NULL;
-    SDL_Surface *infoHero6_4=NULL;
-
-    SDL_Surface *infoHero7_1=NULL;
-    SDL_Surface *infoHero7_2=NULL;
-    SDL_Surface *infoHero7_3=NULL;
-    SDL_Surface *infoHero7_4=NULL;
-
-    SDL_Surface *infoHero8_1=NULL;
-    SDL_Surface *infoHero8_2=NULL;
-    SDL_Surface *infoHero8_3=NULL;
-    SDL_Surface *infoHero8_4=NULL;
-
+    SDL_Surface *infoHero=NULL;
     Mix_Music *bgm=NULL;
     TTF_Font *police = NULL,*police2 = NULL;
     SDL_Color couleurNoire = {0, 0, 0};
@@ -137,160 +97,9 @@ int main(int argc, char *argv[]){
     foe=init_image("img/mob/mob1.bmp",255,255,255);
     SDL_SetAlpha(background, SDL_SRCALPHA, 175);
 
-    Liste_Hero *temp;
-
-    temp = malloc(sizeof(Liste_Hero));
-    temp->premier = heroes_all->premier;
-
-    //hero1
-    sprintf(heroInfo,"%s",temp->premier->hero_name);
-	infoHero1_1 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero1_1,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->money_cost);
-	infoHero1_2 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero1_2,230,230);
-
-	sprintf(heroInfo,"%d",temp->premier->damage_base);
-	infoHero1_3 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero1_3,130,120);
-
-	sprintf(heroInfo,"%d",temp->premier->current_level);
-	infoHero1_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero1_4,120,130);
-
-	temp->premier = temp->premier->suivant; //ca marche
-
-	//hero2
-	sprintf(heroInfo,"%s",temp->premier->hero_name);
-	infoHero2_1 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero2_1,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->money_cost);
-	infoHero2_2 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero2_2,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->damage_base);
-	infoHero2_3 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero2_3,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->current_level);
-	infoHero2_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero2_4,120,120);
-
-   temp->premier = temp->premier->suivant; // ca marche plus
-
-	//hero3
-	sprintf(heroInfo,"%s",temp->premier->hero_name);
-	infoHero3_1 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero3_1,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->money_cost);
-	infoHero3_2 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero3_2,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->damage_base);
-	infoHero3_3 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero3_3,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->current_level);
-	infoHero3_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero3_4,120,120);
-
-    temp->premier = temp->premier->suivant;
-
-	//hero4
-	sprintf(heroInfo,"%s",temp->premier->hero_name);
-	infoHero4_1 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero4_1,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->money_cost);
-	infoHero4_2 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero4_2,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->damage_base);
-	infoHero4_3 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero4_3,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->current_level);
-	infoHero4_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero4_4,120,120);
-
-    temp->premier = temp->premier->suivant;
-
-	//hero5
-	sprintf(heroInfo,"%s",temp->premier->hero_name);
-	infoHero5_1 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero5_1,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->money_cost);
-	infoHero5_2 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero5_2,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->damage_base);
-	infoHero5_3 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero5_3,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->current_level);
-	infoHero5_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero5_4,120,120);
-
-    temp->premier = temp->premier->suivant;
-
-	//hero6
-	sprintf(heroInfo,"%s",temp->premier->hero_name);
-	infoHero6_1 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero6_1,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->money_cost);
-	infoHero6_2 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero6_2,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->damage_base);
-	infoHero6_3 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero6_3,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->current_level);
-	infoHero6_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero6_4,120,120);
-
-    temp->premier = temp->premier->suivant;
-
-	//hero7
-	sprintf(heroInfo,"%s",temp->premier->hero_name);
-	infoHero7_1 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero7_1,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->money_cost);
-	infoHero7_2 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero7_2,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->damage_base);
-	infoHero7_3 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero7_3,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->current_level);
-	infoHero7_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero7_4,120,120);
-
-    temp->premier = temp->premier->suivant;
-
-	//hero8
-	sprintf(heroInfo,"%s",temp->premier->hero_name);
-	infoHero8_1 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero8_1,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->money_cost);
-	infoHero8_2 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero8_2,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->damage_base);
-	infoHero8_3 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero8_3,120,120);
-
-	sprintf(heroInfo,"%d",temp->premier->current_level);
-	infoHero8_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
-	blit(ecran,infoHero8_4,120,120);
+    sprintf(heroInfo,"%s",heroes_all->premier->hero_name);
+	infoHero = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
+	blit(ecran,infoHero,120,120);
 
     bgm=Mix_LoadMUS("sound/bgm.mp3");
     Mix_PlayMusic(bgm,-1);
@@ -302,7 +111,7 @@ int main(int argc, char *argv[]){
 
 	time(&start_t);
 
-    while (continuer){ /* TANT QUE la variable ne vaut pas 0*/
+    while (continuer){ /* TANT QUE la variable ne vaut pas 0 */
 
 		time(&end_t);
 		diff_t = difftime(end_t, start_t);
@@ -429,45 +238,7 @@ int main(int argc, char *argv[]){
             blit(ecran,money,140,60);
             blit(ecran,cursor,event.button.x, event.button.y);
 
-            blit(ecran,infoHero1_1,110,120);
-            blit(ecran,infoHero1_2,110,150);
-            blit(ecran,infoHero1_3,110,135);
-            blit(ecran,infoHero1_4,170,150);
-
-            blit(ecran,infoHero2_1,265,120);
-            blit(ecran,infoHero2_2,265,150);
-            blit(ecran,infoHero2_3,265,135);
-            blit(ecran,infoHero2_4,325,150);
-
-            blit(ecran,infoHero3_1,110,195);
-            blit(ecran,infoHero3_2,110,225);
-            blit(ecran,infoHero3_3,110,210);
-            blit(ecran,infoHero3_4,110,225);
-
-            blit(ecran,infoHero4_1,265,195);
-            blit(ecran,infoHero4_2,265,225);
-            blit(ecran,infoHero4_3,265,210);
-            blit(ecran,infoHero4_4,325,225);
-
-            blit(ecran,infoHero5_1,110,270);
-            blit(ecran,infoHero5_2,110,300);
-            blit(ecran,infoHero5_3,110,285);
-            blit(ecran,infoHero5_4,110,300);
-
-            blit(ecran,infoHero6_1,265,270);
-            blit(ecran,infoHero6_2,265,300);
-            blit(ecran,infoHero6_3,265,285);
-            blit(ecran,infoHero6_4,325,300);
-
-            blit(ecran,infoHero7_1,110,345);
-            blit(ecran,infoHero7_2,110,375);
-            blit(ecran,infoHero7_3,110,360);
-            blit(ecran,infoHero7_4,110,375);
-
-            blit(ecran,infoHero8_1,265,345);
-            blit(ecran,infoHero8_2,265,375);
-            blit(ecran,infoHero8_3,265,360);
-            blit(ecran,infoHero8_4,325,375);
+            blit(ecran,infoHero,110,120);
 
             SDL_Flip(ecran);
         }
@@ -496,47 +267,7 @@ int main(int argc, char *argv[]){
     SDL_FreeSurface(heros5);
     SDL_FreeSurface(heros6);
     SDL_FreeSurface(cursor);
-
-    SDL_FreeSurface(infoHero1_1);
-    SDL_FreeSurface(infoHero1_2);
-    SDL_FreeSurface(infoHero1_3);
-    SDL_FreeSurface(infoHero1_4);
-
-    SDL_FreeSurface(infoHero2_1);
-    SDL_FreeSurface(infoHero2_2);
-    SDL_FreeSurface(infoHero2_3);
-    SDL_FreeSurface(infoHero2_4);
-
-    SDL_FreeSurface(infoHero3_1);
-    SDL_FreeSurface(infoHero3_2);
-    SDL_FreeSurface(infoHero3_3);
-    SDL_FreeSurface(infoHero3_4);
-
-    SDL_FreeSurface(infoHero4_1);
-    SDL_FreeSurface(infoHero4_2);
-    SDL_FreeSurface(infoHero4_3);
-    SDL_FreeSurface(infoHero4_4);
-
-    SDL_FreeSurface(infoHero5_1);
-    SDL_FreeSurface(infoHero5_2);
-    SDL_FreeSurface(infoHero5_3);
-    SDL_FreeSurface(infoHero5_4);
-
-    SDL_FreeSurface(infoHero6_1);
-    SDL_FreeSurface(infoHero6_2);
-    SDL_FreeSurface(infoHero6_3);
-    SDL_FreeSurface(infoHero6_4);
-
-    SDL_FreeSurface(infoHero7_1);
-    SDL_FreeSurface(infoHero7_2);
-    SDL_FreeSurface(infoHero7_3);
-    SDL_FreeSurface(infoHero7_4);
-
-    SDL_FreeSurface(infoHero8_1);
-    SDL_FreeSurface(infoHero8_2);
-    SDL_FreeSurface(infoHero8_3);
-    SDL_FreeSurface(infoHero8_4);
-
+    SDL_FreeSurface(infoHero);
     SDL_FreeSurface(foe);
     SDL_FreeSurface(infos);
     SDL_FreeSurface(pvmonstre);
