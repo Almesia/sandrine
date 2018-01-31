@@ -159,7 +159,7 @@ int main(int argc, char *argv[]){
 	infoHero1_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
 	blit(ecran,infoHero1_4,120,130);
 
-	temp->premier = temp->premier->suivant; //ca marche
+	//temp->premier = temp->premier->suivant; //ca marche
 
 	//hero2
 	sprintf(heroInfo,"%s",temp->premier->hero_name);
@@ -178,7 +178,7 @@ int main(int argc, char *argv[]){
 	infoHero2_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
 	blit(ecran,infoHero2_4,120,120);
 
-   temp->premier = temp->premier->suivant; // ca marche plus
+   //temp->premier = temp->premier->suivant; // ca marche plus
 
 	//hero3
 	sprintf(heroInfo,"%s",temp->premier->hero_name);
@@ -197,7 +197,7 @@ int main(int argc, char *argv[]){
 	infoHero3_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
 	blit(ecran,infoHero3_4,120,120);
 
-    temp->premier = temp->premier->suivant;
+    //temp->premier = temp->premier->suivant;
 
 	//hero4
 	sprintf(heroInfo,"%s",temp->premier->hero_name);
@@ -216,7 +216,7 @@ int main(int argc, char *argv[]){
 	infoHero4_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
 	blit(ecran,infoHero4_4,120,120);
 
-    temp->premier = temp->premier->suivant;
+    //temp->premier = temp->premier->suivant;
 
 	//hero5
 	sprintf(heroInfo,"%s",temp->premier->hero_name);
@@ -235,7 +235,7 @@ int main(int argc, char *argv[]){
 	infoHero5_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
 	blit(ecran,infoHero5_4,120,120);
 
-    temp->premier = temp->premier->suivant;
+    //temp->premier = temp->premier->suivant;
 
 	//hero6
 	sprintf(heroInfo,"%s",temp->premier->hero_name);
@@ -254,7 +254,7 @@ int main(int argc, char *argv[]){
 	infoHero6_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
 	blit(ecran,infoHero6_4,120,120);
 
-    temp->premier = temp->premier->suivant;
+    //temp->premier = temp->premier->suivant;
 
 	//hero7
 	sprintf(heroInfo,"%s",temp->premier->hero_name);
@@ -273,7 +273,7 @@ int main(int argc, char *argv[]){
 	infoHero7_4 = TTF_RenderText_Blended(police2,heroInfo,couleurNoire);
 	blit(ecran,infoHero7_4,120,120);
 
-    temp->premier = temp->premier->suivant;
+    //temp->premier = temp->premier->suivant;
 
 	//hero8
 	sprintf(heroInfo,"%s",temp->premier->hero_name);
